@@ -1,1 +1,0 @@
-print("Barcode scanner gestartet.")
