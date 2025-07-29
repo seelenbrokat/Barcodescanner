@@ -1,18 +1,25 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base-python:10.4.2
+ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+# Add-on metadata
+LABEL \
+    org.opencontainers.image.title="WOG Barcode Scanner" \
+    org.opencontainers.image.description="Barcode-Scanner Add-on mit Weboberfläche" \
+    org.opencontainers.image.source="https://github.com/seelenbrokat/barcodescanner" \
+    org.opencontainers.image.licenses="MIT"
 
-# Copy add-on files
+# Install Python
+RUN apk add --no-cache python3 py3-pip
+
+# Add App
 COPY barcodescanner.py /app/barcodescanner.py
 COPY run.sh /etc/services.d/wog_barcode_scanner/run
 
-# Optional: WebApp bereitstellen (falls wieder aktiviert)
+# Optional: Webapp
 #COPY webapp/ /app/webapp/
 
 # Make script executable
-RUN chmod +x /etc/services.d/wog_barcode_scanner/run
+RUN chmod a+x /etc/services.d/wog_barcode_scanner/run
 
-# Expose the web interface port (falls WebUI verwendet wird)
-EXPOSE 8099
+# Set workdir
+WORKDIR /app
