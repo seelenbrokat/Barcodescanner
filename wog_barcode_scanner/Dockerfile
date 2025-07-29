@@ -9,7 +9,7 @@ COPY barcodescanner.py /app/barcodescanner.py
 COPY run.sh /etc/services.d/wog_barcode_scanner/run
 
 # Optional: WebApp bereitstellen (falls wieder aktiviert)
-COPY webapp/ /app/webapp/
+#COPY webapp/ /app/webapp/
 
 # Make script executable
 RUN chmod +x /etc/services.d/wog_barcode_scanner/run
