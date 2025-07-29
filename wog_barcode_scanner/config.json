@@ -1,6 +1,6 @@
 {
   "name": "WOG Barcode Scanner",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "slug": "wog_barcode_scanner",
   "description": "Scant Barcodes, schreibt in die MariaDB und überträgt XML per FTP",
   "startup": "application",
