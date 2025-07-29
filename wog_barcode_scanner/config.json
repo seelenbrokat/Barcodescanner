@@ -8,6 +8,5 @@
   "arch": ["amd64", "aarch64"],
   "host_network": true,
   "options": {},
-  "schema": {},
-  "image": "local/wog_barcode_scanner"
+  "schema": {}
 }
