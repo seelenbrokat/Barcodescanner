@@ -1,14 +1,20 @@
-FROM ghcr.io/hassio-addons/base:13.2.0
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-# Python installieren
+# Labels
+LABEL maintainer="seelenbrokat"
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install Python and dependencies
 RUN apk add --no-cache python3 py3-pip
 
-# Sicherstellen, dass das Dienstverzeichnis existiert
-RUN mkdir -p /etc/services.d/barcodescanner
+# Copy all relevant files into the container
+COPY barcodescanner.py /opt/barcodescanner.py
+COPY run.sh /etc/services.d/wog_barcode_scanner/run
 
-# Scanner-Logik und Startskript einfügen
-COPY barcodescanner.py /data/barcodescanner.py
-COPY run.sh /etc/services.d/barcodescanner/run
+# Make script executable
+RUN chmod +x /etc/services.d/wog_barcode_scanner/run
 
-# Ausführbarkeit sicherstellen
-RUN chmod +x /etc/services.d/barcodescanner/run
+# Home Assistant s6-overlay expects no CMD or ENTRYPOINT here
