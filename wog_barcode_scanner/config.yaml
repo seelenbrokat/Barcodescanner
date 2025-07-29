@@ -1,0 +1,25 @@
+name: "WOG Barcode Scanner"
+description: "Scant Barcodes, schreibt in die MariaDB und überträgt XML per FTP"
+version: "1.0.10"
+slug: "wog_barcode_scanner"
+startup: "application"
+boot: "auto"
+panel_icon: "mdi:barcode-scan"
+panel_title: "WOG Scanner"
+webui: "http://[HOST]:[PORT:8099]"
+ports:
+  8099/tcp: 8099
+schema:
+  db_host: "str?"
+  db_user: "str?"
+  db_pass: "str?"
+  ftp_host: "str?"
+  ftp_user: "str?"
+  ftp_pass: "str?"
+options:
+  db_host: ""
+  db_user: ""
+  db_pass: ""
+  ftp_host: ""
+  ftp_user: ""
+  ftp_pass: ""
