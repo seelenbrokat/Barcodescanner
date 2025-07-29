@@ -1,13 +1,15 @@
 {
   "name": "WOG Barcode Scanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "wog_barcode_scanner",
-  "description": "Ein Add-on zur Barcode-Erfassung mit Weboberfläche",
+  "description": "Scant Barcodes, schreibt in die MariaDB und überträgt XML per FTP.",
   "startup": "application",
   "boot": "auto",
+  "ingress": false,
+  "host_network": true,
   "panel_icon": "mdi:barcode-scan",
   "panel_title": "WOG Scanner",
-  "webui": "http://[HOST]:[PORT]",
+  "webui": "http://[HOST]:8099",
   "options": {
     "db_host": "localhost",
     "db_user": "",
