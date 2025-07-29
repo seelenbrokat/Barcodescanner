@@ -1,0 +1,1 @@
+print("Barcode scanner gestartet.")
