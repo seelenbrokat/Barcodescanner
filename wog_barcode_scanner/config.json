@@ -1,0 +1,13 @@
+{
+  "name": "WOG Barcode Scanner",
+  "version": "1.0.0",
+  "slug": "wog_barcode_scanner",
+  "description": "Ein benutzerdefiniertes Add-on zum Scannen und Verarbeiten von Barcodes",
+  "startup": "services",
+  "boot": "auto",
+  "arch": ["amd64", "aarch64"],
+  "host_network": true,
+  "options": {},
+  "schema": {},
+  "image": "local/wog_barcode_scanner"
+}
